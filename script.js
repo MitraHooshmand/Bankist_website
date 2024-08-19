@@ -29,7 +29,8 @@ document.addEventListener("keydown", function (e) {
     closeModal();
   }
 });
-
+/////////////////////////////////////// smooth scroll
+/////////////////////////////////// learn more link
 document
   .querySelector(".btn--scroll-to")
   .addEventListener("click", function (e) {
@@ -42,7 +43,16 @@ document
       top: targetCoordinate.top + window.scrollY,
       behavior: "smooth",
     });
-
     // document.getElementById("section--1").scrollIntoView({ behavior: 'smooth' });
-    console.log(targetCoordinate);
   });
+
+////////// scroll in nav bar
+
+document.querySelector(".nav__links").addEventListener("click", function (e) {
+  e.preventDefault();
+  if (e.target.classList.contains("nav__link")) {
+    const id = e.target.getAttribute("href");
+    document.querySelector(id).scrollIntoView({ behavior: "smooth" });
+    console.log(id);
+  }
+});
