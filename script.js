@@ -29,3 +29,20 @@ document.addEventListener("keydown", function (e) {
     closeModal();
   }
 });
+
+document
+  .querySelector(".btn--scroll-to")
+  .addEventListener("click", function (e) {
+    const targetCoordinate = document
+      .getElementById("section--1")
+      .getBoundingClientRect();
+
+    window.scrollTo({
+      left: targetCoordinate.left + window.scrollX,
+      top: targetCoordinate.top + window.scrollY,
+      behavior: "smooth",
+    });
+
+    // document.getElementById("section--1").scrollIntoView({ behavior: 'smooth' });
+    console.log(targetCoordinate);
+  });
