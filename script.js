@@ -232,3 +232,30 @@ dotContainer.addEventListener("click", function (e) {
     activateDot(slide);
   }
 });
+
+////////////////////////  challenge
+
+const Car = function (make, speed) {
+  this.make = make;
+  this.speed = speed;
+};
+
+const car1 = new Car("bmw", 100);
+const car2 = new Car("bnz", 230);
+Car.prototype.accelerate = function () {
+  console.log((this.speed += 10));
+};
+
+Car.prototype.brake = function () {
+  console.log((this.speed -= 5));
+};
+
+car1.accelerate();
+car1.brake();
+car1.brake();
+
+car1.brake();
+
+car1.brake();
+
+car2.accelerate();
