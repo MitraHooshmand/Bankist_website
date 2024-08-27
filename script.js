@@ -253,9 +253,8 @@ Car.prototype.brake = function () {
 car1.accelerate();
 car1.brake();
 car1.brake();
-
 car1.brake();
 
 car1.brake();
-
+car2.accelerate();
 car2.accelerate();
