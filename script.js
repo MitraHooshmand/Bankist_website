@@ -446,3 +446,66 @@ dotContainer.addEventListener("click", function (e) {
 
 // tesla.chargeBattery(90);
 // tesla.accelerate();
+
+////////////// #4
+
+class CarCl {
+  constructor(factory, speed) {
+    this.factory = factory;
+    this.speed = speed;
+  }
+  accelerate() {
+    this.speed += 10;
+    console.log(`${this.factory} is going at ${this.speed}km/h`);
+  }
+  brake() {
+    this.speed -= 5;
+    console.log(`${this.factory} is going at ${this.speed}km/h`);
+    return this;
+  }
+
+  get speedUS() {
+    return this.speed / 1.6;
+  }
+  set speedUS(speed) {
+    this.speed = speed * 1.6;
+  }
+}
+
+class EVCl extends CarCl {
+  #charge;
+  constructor(factory, speed, charge) {
+    super(factory, speed);
+    this.#charge = charge;
+  }
+
+  chargeBattery(chargeTo) {
+    this.#charge = chargeTo;
+    return this;
+  }
+  accelerate() {
+    this.speed += 10;
+    this.#charge--;
+    console.log(
+      `${this.factory} is going at ${this.speed}km/h and ${
+        this.#charge
+      }% charge`
+    );
+    return this;
+  }
+}
+
+const folex = new EVCl("folex", 120, 23);
+folex
+  .accelerate()
+  .accelerate()
+  .accelerate()
+  .brake()
+  .brake()
+  .brake()
+  .chargeBattery(50)
+  .accelerate();
+console.log(folex.speedUS);
+// folex.brake()
+// folex.accelerate();
+// folex.chargeBattery(66)
